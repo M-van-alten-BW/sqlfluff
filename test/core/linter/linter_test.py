@@ -77,7 +77,7 @@ def test__linter__skip_large_bytes(filesize, raises_skip):
     else:
         assert result
 
-@pytest.mark.parametrize("byte_lim, raises", [(0, False), (None, True), (200, False), ("200", False), ("Not a Valid value", True)])
+@pytest.mark.parametrize("byte_lim, raises", [(0, False), (None, False), (200, False), ("200", False), ("Not a Valid value", True), ("None", True)])
 def test__linter__large_file_skip_byte_limit__setting(byte_lim, raises):
     """Test whether linter can handle custom values for large_file_skip_byte_limit setting.
     
